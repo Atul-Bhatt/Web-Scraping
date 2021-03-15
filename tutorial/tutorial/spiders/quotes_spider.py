@@ -26,9 +26,9 @@ class QuotesSpider(scrapy.Spider):
 
     # TODO: define the parse function that will scrape the web
     def parse(self, response):
-        page = response.url.split("/")[-2]
-        file_name = f"quotes{page}.html"
-        with open(file_name, mode="wb") as f:
-            f.write(response.body)
-
-        self.log(f"Saved File: {file_name}")
+        i = 2
+        quotes = response.xpath("//span[@class='text']/text()")
+        with open("Quotes.txt", mode='w') as f:
+            for quote in quotes:
+                f.write(quote.get())
+                f.write("\n")
