@@ -1,0 +1,5 @@
+Run Scrawler using its name (variable in Spider class)
+    scrapy crawl <crawler_name>
+
+If you don't want to implement the start_requests() method of Spider then use the start_urls attribute
+of spider method and initialize it with a list of urls. It will use the default start_requests() method.
