@@ -21,6 +21,7 @@ class QuotesSpider(scrapy.Spider):
     # TODO: Use start_urls if you don't want to implement start_requests()
     start_urls = [
         "http://quotes.toscrape.com/page/1/"
+        # "http://quotes.toscrape.com/tag/humor"
     ]
 
     # TODO: define the parse function that will scrape the web
