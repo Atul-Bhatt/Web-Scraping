@@ -20,8 +20,7 @@ class QuotesSpider(scrapy.Spider):
 
     # TODO: Use start_urls if you don't want to implement start_requests()
     start_urls = [
-        "http://quotes.toscrape.com/page/1/",
-        "http://quotes.toscrape.com/page/2/"
+        "http://quotes.toscrape.com/page/1/"
     ]
 
     # TODO: define the parse function that will scrape the web
@@ -32,3 +31,10 @@ class QuotesSpider(scrapy.Spider):
                 'author': quote.css('small.author::text').get(),
                 'tags': quote.css('div.tags a.tag::text').getall()
             }
+
+        # next_page = response.css('li.next a::attr(href)').get()
+        # if next_page is not None:
+        #     next_page = response.urljoin(next_page)
+        #     yield scrapy.Request(next_page, callback=self.parse)
+
+        yield from response.follow_all(css='li.next a', callback=self.parse)
