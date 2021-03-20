@@ -26,9 +26,9 @@ class QuotesSpider(scrapy.Spider):
 
     # TODO: define the parse function that will scrape the web
     def parse(self, response):
-        i = 2
-        quotes = response.xpath("//span[@class='text']/text()")
-        with open("Quotes.txt", mode='w') as f:
-            for quote in quotes:
-                f.write(quote.get())
-                f.write("\n")
+        for quote in response.css('div.quote'):
+            yield {
+                'text': quote.css('span.text::text').get().strip("\u201d").strip("\u201c"),
+                'author': quote.css('small.author::text').get(),
+                'tags': quote.css('div.tags a.tag::text').getall()
+            }

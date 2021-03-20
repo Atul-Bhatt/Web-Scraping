@@ -7,3 +7,9 @@ of spider method and initialize it with a list of urls. It will use the default 
 Even if we don't call parse method it is called because Scrapy's default callback method is parse.
 
 scrapy shell "http://quotes.toscrape.com/page/1/"
+
+-O overwrites, -o appends(to a json)
+
+appending to a json file makes it invalid, if you want to append then use json line format, eg: quotes.jl
+
+scrapy crawl quotes -O quotes.json
