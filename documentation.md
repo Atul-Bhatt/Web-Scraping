@@ -164,3 +164,9 @@ https://docs.scrapy.org/en/latest/topics/items.html
 ---
 
 https://docs.scrapy.org/en/latest/topics/loaders.html ---will read in future
+
+---
+
+# Now We Make Projects
+
+Creating a bot that will scrape information about all the laptops with prices.
