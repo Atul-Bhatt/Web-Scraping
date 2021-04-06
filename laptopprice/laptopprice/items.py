@@ -3,11 +3,14 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
 
-import scrapy
+from scrapy.item import Item, Field
 
 
-class Laptop(scrapy.Item):
-    Model = scrapy.Field()
-    RAM = scrapy.Field()
-    Processor = scrapy.Field()
-    OS = scrapy.Field()
+class Laptop(Item):
+    Model = Field()
+    RAM = Field()
+    Processor = Field()
+    OS = Field()
+    Memory = Field()
+    Display = Field()
+    # last_updated = Field(serializer=str)
